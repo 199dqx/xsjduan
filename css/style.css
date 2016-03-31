@@ -383,7 +383,7 @@ body >header {
 }
 @media only screen and (min-width: 1024px) {
   body >header {
-    padding: 1.8em 0 1.5em;
+    padding: 0;
   }
 }
 body >header >div {
@@ -403,17 +403,17 @@ body >header a {
 }
 #imglogo {
   float: left;
-  width: 4em;
+  width: 14em;
   height: 4em;
 }
 @media only screen and (min-width: 768px) {
   #imglogo {
-    width: 5em;
+    width: 15em;
   }
 }
 @media only screen and (min-width: 1024px) {
   #imglogo {
-    width: 5.5em;
+    width: 15.5em;
   }
 }
 #imglogo img {
@@ -430,6 +430,7 @@ body >header a {
   }
 }
 #textlogo {
+  display: none;
   float: left;
   width: 75%;
   margin-left: 0.5em;
