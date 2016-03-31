@@ -4,65 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>走出第一步 | 前端网,关注互联网前端行业</title>
+    <title>解决github多个用户使用ssh-key | 前端网,关注互联网前端行业</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Yu Duan">
     
 
-    
-    <meta name="description" content="##总结自己的问题
-一直有想法把自己的工作经历用博客记录下来
-但每天好像总有做不完的事情，其实这样不对
-想起来就去做 GO DO IT！ 才是最好的生活状态
-##谈谈昨天看的一篇博客
-
-博主是云风-网易的风魂引擎主开发者
-
-发现牛人与庸人最大的差别就是空闲时间
-
-上班大家都是在忙着烦琐的芝麻小事，只是空闲时间才是属于自己
-
-云风平时特别喜欢在下班时间折腾一些小玩意
-
-喜欢把重复的机械工作用工具来实">
+    <meta name="keywords" content="github,blog,ssh-key">
+    <meta name="description" content="同一台电脑使用多个github的解决办法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="走出第一步">
-<meta property="og:url" content="http://blog.uugit.com/2016/03/11/first-blog/index.html">
+<meta property="og:title" content="解决github多个用户使用ssh-key">
+<meta property="og:url" content="http://blog.uugit.com/2016/03/31/gitlotuser/index.html">
 <meta property="og:site_name" content="前端网,关注互联网前端行业">
-<meta property="og:description" content="##总结自己的问题
-一直有想法把自己的工作经历用博客记录下来
-但每天好像总有做不完的事情，其实这样不对
-想起来就去做 GO DO IT！ 才是最好的生活状态
-##谈谈昨天看的一篇博客
-
-博主是云风-网易的风魂引擎主开发者
-
-发现牛人与庸人最大的差别就是空闲时间
-
-上班大家都是在忙着烦琐的芝麻小事，只是空闲时间才是属于自己
-
-云风平时特别喜欢在下班时间折腾一些小玩意
-
-喜欢把重复的机械工作用工具来实">
-<meta property="og:updated_time" content="2016-03-11T12:11:18.000Z">
+<meta property="og:description" content="同一台电脑使用多个github的解决办法">
+<meta property="og:image" content="http://blog.uugit.com/img/gituser.png">
+<meta property="og:updated_time" content="2016-03-31T12:02:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="走出第一步">
-<meta name="twitter:description" content="##总结自己的问题
-一直有想法把自己的工作经历用博客记录下来
-但每天好像总有做不完的事情，其实这样不对
-想起来就去做 GO DO IT！ 才是最好的生活状态
-##谈谈昨天看的一篇博客
-
-博主是云风-网易的风魂引擎主开发者
-
-发现牛人与庸人最大的差别就是空闲时间
-
-上班大家都是在忙着烦琐的芝麻小事，只是空闲时间才是属于自己
-
-云风平时特别喜欢在下班时间折腾一些小玩意
-
-喜欢把重复的机械工作用工具来实">
+<meta name="twitter:title" content="解决github多个用户使用ssh-key">
+<meta name="twitter:description" content="同一台电脑使用多个github的解决办法">
 
     
     <link rel="alternative" href="/atom.xml" title="前端网,关注互联网前端行业" type="application/atom+xml">
@@ -122,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2016/03/11/first-blog/" title="走出第一步" itemprop="url">走出第一步</a>
+      <a href="/2016/03/31/gitlotuser/" title="解决github多个用户使用ssh-key" itemprop="url">解决github多个用户使用ssh-key</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Yu Duan" target="_blank" itemprop="author">Yu Duan</a>
 		
   <p class="article-time">
-    <time datetime="2016-03-11T12:10:04.000Z" itemprop="datePublished"> 发表于 2016-03-11</time>
+    <time datetime="2016-03-31T11:42:00.000Z" itemprop="datePublished"> 发表于 2016-03-31</time>
     
   </p>
 </header>
@@ -138,47 +97,38 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成一个公司用的SSH-Key"><span class="toc-number">1.</span> <span class="toc-text">生成一个公司用的SSH-Key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成一个github用的SSH-Key"><span class="toc-number">2.</span> <span class="toc-text">生成一个github用的SSH-Key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加私钥_用于服务器拉取本地的key,然后git会去核对，核对成功才能算是验证通过"><span class="toc-number">3.</span> <span class="toc-text">添加私钥 用于服务器拉取本地的key,然后git会去核对，核对成功才能算是验证通过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配置文件"><span class="toc-number">4.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">5.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">6.</span> <span class="toc-text">测试</span></a></li></ol>
 		
 		</div>
 		
-		<p>##总结自己的问题</p>
-<p>一直有想法把自己的工作经历用博客记录下来</p>
-<p>但每天好像总有做不完的事情，其实这样不对</p>
-<p>想起来就去做 GO DO IT！ 才是最好的生活状态</p>
-<p>##谈谈昨天看的一篇博客</p>
-<ul>
-<li><p>博主是云风-网易的风魂引擎主开发者</p>
-</li>
-<li><p>发现牛人与庸人最大的差别就是空闲时间</p>
-</li>
-<li><p>上班大家都是在忙着烦琐的芝麻小事，只是空闲时间才是属于自己</p>
-</li>
-<li><p>云风平时特别喜欢在下班时间折腾一些小玩意</p>
-</li>
-<li><p>喜欢把重复的机械工作用工具来实现流程化，智能化，这一点感觉好牛逼</p>
-</li>
-<li><p>对于自己要求很严格，总是抱着一颗把事情做好的初心，不去计较多少钱，不去想要达到什么目的，只为把事情做好</p>
-</li>
-<li><p>善于总结，一个阶段的工作完成后，总是在想哪里可以做的更好，想完就去做，从开始的大话1引擎的N多BUG，到大话2的稳定，最后到梦幻的完美，&gt;</p>
-</li>
-</ul>
-<p>总是一步一步往前进</p>
-<ul>
-<li><p>特别佩服他没事喜欢去各个同事，各个部门去转悠，总是把自己的想法提出，知无不言，对事不对人，本着把事情做好的态度</p>
-</li>
-<li><p>这些都是很优秀的品质啊，成功果然不是偶然的</p>
-</li>
-<li><p>特别喜欢一句话：幸福的家庭都是相似的，不幸的家庭各有各的不幸</p>
-</li>
-<li><p>衍生一下：牛逼的人都是相似的，庸人各有各的平庸</p>
-</li>
-</ul>
+		<p>我们在日常工作中会遇到公司有个gitlab，还有些自己的一些项目放在github上。这样就导致我们要配置不同的ssh-key对应不同的环境。下面我们来看看具体的操作：</p>
+<h2 id="生成一个公司用的SSH-Key">生成一个公司用的SSH-Key</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@yourcompany.com” -f ~/.ssh/id-rsa"</span></span><br></pre></td></tr></table></figure>
+<p>在~/.ssh/目录会生成id-rsa和id-rsa.pub私钥和公钥。 我们将id-rsa.pub中的内容粘帖到公司gitlab服务器的SSH-key的配置中。</p>
+<h2 id="生成一个github用的SSH-Key">生成一个github用的SSH-Key</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"youremail@your.com” -f ~/.ssh/github-rsa"</span></span><br></pre></td></tr></table></figure>
+<p>在~/.ssh/目录会生成github-rsa和github-rsa.pub私钥和公钥。 我们将github-rsa.pub中的内容粘帖到github服务器的SSH-key的配置中。<br>这一条很重要，之前我就遇到了这个坑，网上查了很多都没有后面的半句 -f ~/ xxx  所以，导致没有生成这个文件</p>
+<h2 id="添加私钥_用于服务器拉取本地的key,然后git会去核对，核对成功才能算是验证通过">添加私钥 用于服务器拉取本地的key,然后git会去核对，核对成功才能算是验证通过</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-add ~/.ssh/id_rsa $ ssh-add ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
+<p>如果执行ssh-add时提示”Could not open a connection to your authentication agent”，可以现执行命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-agent bash</span><br></pre></td></tr></table></figure>
+<p>然后再运行ssh-add命令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可以通过 ssh-add -l 来确私钥列表</span></span><br><span class="line">$ ssh-add <span class="operator">-l</span></span><br><span class="line"><span class="comment"># 可以通过 ssh-add -D 来清空私钥列表</span></span><br><span class="line">$ ssh-add -D</span><br></pre></td></tr></table></figure>
+<h2 id="修改配置文件">修改配置文件</h2><p>在 ~/.ssh 目录下新建一个config文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch config</span><br></pre></td></tr></table></figure>
+<p>添加内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># gitlab</span></span><br><span class="line">Host gitlab.com</span><br><span class="line">    HostName gitlab.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa</span><br><span class="line"><span class="comment"># github</span></span><br><span class="line">Host github.com</span><br><span class="line">    HostName github.com</span><br><span class="line">    PreferredAuthentications publickey</span><br><span class="line">    IdentityFile ~/.ssh/id_rsa_github</span><br></pre></td></tr></table></figure>
+<h2 id="目录">目录</h2><p><img src="/img/gituser.png"></p>
+<h2 id="测试">测试</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>输出</p>
+<p>Hi stefzhlg! You’ve successfully authenticated, but GitHub does not provide shell access.<br>就表示成功的连上github了.也可以试试链接公司的gitlab.</p>
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/github/">github</a>
+  </div>
 
 </div>
 
@@ -186,7 +136,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://blog.uugit.com/2016/03/11/first-blog/" data-title="走出第一步 | 前端网,关注互联网前端行业" data-tsina="null" class="share clearfix">
+	  <div data-url="http://blog.uugit.com/2016/03/31/gitlotuser/" data-title="解决github多个用户使用ssh-key | 前端网,关注互联网前端行业" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -199,14 +149,14 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2016/03/11/objective/" title="目标">
-  <strong>上一篇：</strong><br/>
-  <span>
-  目标</span>
+
+<div class="next">
+<a href="/2016/03/11/hello-world/"  title="Hello World">
+ <strong>下一篇：</strong><br/> 
+ <span>Hello World
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -218,7 +168,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#生成一个公司用的SSH-Key"><span class="toc-number">1.</span> <span class="toc-text">生成一个公司用的SSH-Key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成一个github用的SSH-Key"><span class="toc-number">2.</span> <span class="toc-text">生成一个github用的SSH-Key</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#添加私钥_用于服务器拉取本地的key,然后git会去核对，核对成功才能算是验证通过"><span class="toc-number">3.</span> <span class="toc-text">添加私钥 用于服务器拉取本地的key,然后git会去核对，核对成功才能算是验证通过</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#修改配置文件"><span class="toc-number">4.</span> <span class="toc-text">修改配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#目录"><span class="toc-number">5.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#测试"><span class="toc-number">6.</span> <span class="toc-text">测试</span></a></li></ol>
  
   </div>
 
